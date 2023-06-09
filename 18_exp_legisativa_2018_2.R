@@ -69,25 +69,6 @@ exp_leg_2018 <- exp_leg_2018_prueba %>%
 exp_leg_2018 %>% 
   print(n = Inf)
 
-### Base de datos de Joy ----
-
-bd_joy <- read_excel("01_datos/3 REELECTION LIST 2021_distrt_comp.xlsx")
-
-
-bd_joy <- bd_joy %>% 
-  select(`sitting Diputada2018`) %>% 
-  mutate(tiene_na = is.na(`sitting Diputada2018`)) %>% 
-  filter(tiene_na != T) %>% 
-  select(-tiene_na) %>% 
-  rename(nom_diputados = "sitting Diputada2018" )
-
-nombre_diputados_y_tip_edu_2018 <- read_excel("C:/Users/helio/OneDrive - Centro de Investigacion y Docencia Economicas CIDE/7mo semestre/investigacion/01_documentos/nombre_diputados_y_tip_edu_2018.xlsx")
-
-nombre_diputados_2018 <-  nombre_diputados_y_tip_edu_2018 %>% 
-  select(nom_diputados)
-
-nombre_diputados_2018 <- nombre_diputados_2018 %>% 
-  mutate(id_dip = 1:500)
 
 nombre_diputados_2018 <- nombre_diputados_2018 %>% 
   mutate(exp_leg= exp_leg_2018$value)
