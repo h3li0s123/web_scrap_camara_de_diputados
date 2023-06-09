@@ -15,7 +15,7 @@ lista_lxiv <- lapply(paste0("http://sitl.diputados.gob.mx/LXIV_leg/curricula.php
                      })
 
 
-###Prueba para saber si funciona
+###Prueba
 prueba_lxiv <- lista_lxiv[[1]] %>% 
   as_tibble() %>% 
   mutate(dip = str_detect(value,"Diputada\\(o\\)"),
